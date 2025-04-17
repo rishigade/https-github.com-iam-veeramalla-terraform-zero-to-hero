@@ -92,8 +92,8 @@ resource "aws_instance" "webserver2" {
 }
 
 #create alb
-resource "aws_lb" "eTop_alb" {
-  name               = "eTop_alb"
+resource "aws_lb" "eTop-alb" {
+  name               = "eTop-alb"
   internal           = false
   load_balancer_type = "application"
 
@@ -130,7 +130,7 @@ resource "aws_lb_target_group_attachment" "attach2" {
 }
 
 resource "aws_lb_listener" "listener" {
-  load_balancer_arn = aws_lb.eTop_alb.arn
+  load_balancer_arn = aws_lb.eTop-alb.arn
   port              = 80
   protocol          = "HTTP"
 
@@ -141,5 +141,5 @@ resource "aws_lb_listener" "listener" {
 }
 
 output "loadbalancerdns" {
-  value = aws_lb.eTop_alb.dns_name
+  value = aws_lb.eTop-alb.dns_name
 }
