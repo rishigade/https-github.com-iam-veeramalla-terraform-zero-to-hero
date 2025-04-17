@@ -8,3 +8,8 @@ variable "instance_type" {
   default     = "t2.micro"
 }
 
+variable "ami-type" {
+  description = "ami required for instance launch"
+  type = string
+  default = "ami-01621ce8f257d0d13"
+}
