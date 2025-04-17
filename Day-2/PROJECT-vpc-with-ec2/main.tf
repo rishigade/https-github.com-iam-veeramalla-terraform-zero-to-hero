@@ -77,7 +77,7 @@ resource "aws_s3_bucket" "example" {
 
 resource "aws_instance" "webserver1" {
   ami                    = "ami-0261755bbcb8c4a84"
-  instance_type          = "t2.micro"
+  instance_type          = var.instance_type
   vpc_security_group_ids = [aws_security_group.webSg.id]
   subnet_id              = aws_subnet.sub1.id
   user_data              = base64encode(file("userdata.sh"))
@@ -85,7 +85,7 @@ resource "aws_instance" "webserver1" {
 
 resource "aws_instance" "webserver2" {
   ami                    = "ami-0261755bbcb8c4a84"
-  instance_type          = "t2.micro"
+  instance_type          = var.instance_type
   vpc_security_group_ids = [aws_security_group.webSg.id]
   subnet_id              = aws_subnet.sub2.id
   user_data              = base64encode(file("userdata1.sh"))
